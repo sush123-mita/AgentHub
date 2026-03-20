@@ -1,6 +1,6 @@
 
-/*const { Sequelize } = require('sequelize');
-
+const { Sequelize } = require('sequelize');
+/*
 const sequelize = new Sequelize('agenthub', 'agenthub_user', 'password', {
   host: process.env.DB_HOST || 'localhost',
   port: process.env.DB_PORT || 3306,
