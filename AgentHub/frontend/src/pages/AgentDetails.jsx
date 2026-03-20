@@ -42,8 +42,11 @@ export default function AgentDetails() {
       const res = await useAgent(id, inputs);
       setResult(res.data.response || 'No response generated.');
       if (res.data.agent) setAgent(res.data.agent);
-    } catch {
-      setResult('**Error running agent**. Please try again.');
+    } catch (err) {
+      const msg = err.response?.status === 429 
+        ? '**Gemini AI Quota Exceeded**. Please wait 1 minute before trying again.' 
+        : '**Error running agent**. Please check your connection and try again.';
+      setResult(msg);
     }
     setRunning(false);
   };

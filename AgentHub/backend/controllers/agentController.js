@@ -38,7 +38,11 @@ exports.getAgents = async (req, res) => {
     
     res.json(agents);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ 
+      error: 'Failed to retrieve agents.', 
+      details: err.message,
+      suggestion: 'Please try again later or contact support if the issue persists.'
+    });
   }
 };
 
@@ -107,7 +111,7 @@ exports.getTrending = async (req, res) => {
 // ── Real AI response generator ──
 async function runAgentWithGemini(agentName, userInput) {
   const genAI = new GoogleGenerativeAI(process.env.AI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   
   const prompts = {
     "resume generator": `Create a complete professional ATS-friendly 

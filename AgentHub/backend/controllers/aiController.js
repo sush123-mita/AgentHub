@@ -61,6 +61,14 @@ exports.recommendAgents = async (req, res) => {
 
   } catch (error) {
     console.error('AI Recommendation Error:', error);
-    res.status(500).json({ error: 'Failed to generate AI recommendations.', details: error.message });
+    const statusCode = error.message?.includes('429') ? 429 : 500;
+    const errorMessage = error.message?.includes('429') 
+      ? 'Gemini AI quota exceeded. Please try again in 1 minute.' 
+      : 'Failed to generate AI recommendations.';
+      
+    res.status(statusCode).json({ 
+      error: errorMessage, 
+      details: error.message 
+    });
   }
 };

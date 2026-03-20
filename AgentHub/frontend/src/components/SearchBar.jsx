@@ -20,8 +20,8 @@ export default function SearchBar({ value, onChange, onKeyDown, placeholder, lig
       setAiResults(res.data);
     } catch (err) {
       console.error('AI Suggestion error', err);
-      // Fallback or show error state if needed
-      setAiResults([{ id: 'error', name: 'Please enter your Gemini API Key in backend/.env', aiReason: err.response?.data?.error || 'Server error' }]);
+      const msg = err.response?.data?.error || 'Gemini AI is currently busy or quota exceeded. Please try again in a few moments.';
+      setAiResults([{ id: 'error', name: 'AI Search currently unavailable', aiReason: msg }]);
     } finally {
       setIsAiLoading(false);
     }

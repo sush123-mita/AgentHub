@@ -1,0 +1,4 @@
+nohup: ignoring input
+[dotenv@17.3.1] injecting env (2) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Connected to MySQL and Synced Data
+Server running on port 5000
