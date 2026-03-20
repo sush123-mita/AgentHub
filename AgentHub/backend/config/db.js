@@ -1,5 +1,5 @@
 
-const { Sequelize } = require('sequelize');
+/*const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('agenthub', 'agenthub_user', 'password', {
   host: process.env.DB_HOST || 'localhost',
@@ -7,7 +7,18 @@ const sequelize = new Sequelize('agenthub', 'agenthub_user', 'password', {
   dialect: 'mysql',
   logging: false,
 });
+*/
 
+const sequelize = new Sequelize(
+  process.env.DB_NAME || 'agenthub',
+  process.env.DB_USER || 'agenthub_user',
+  process.env.DB_PASSWORD || 'password',
+{
+  host: process.env.DB_HOST || 'localhost',
+  port: process.env.DB_PORT || 3306,
+  dialect: 'mysql',
+  logging: false,
+});
 /*
 const { Sequelize } = require('sequelize');
 
