@@ -4,4 +4,4 @@
 
 [dotenv@17.3.1] injecting env (3) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
 Connected to MySQL and Synced Data
-Server running on port 5000
+Server running on port process.env.PORT
