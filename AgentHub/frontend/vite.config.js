@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   preview: {
     port: process.env.PORT || 5173,
-    host: true
+    host:true,
+    allowedHosts: ['chic-enthusiasm-production-93d0.up.railway.app', 'all']
   }
 })
 
