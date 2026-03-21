@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, TrendingUp, Zap } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import AgentCard from '../components/AgentCard';
 import CategoryCard from '../components/CategoryCard';
-import { getFeatured, getTrending, getAgents } from '../api';
+import { getFeatured, getTrending } from '../api';
 
 const CATEGORIES = [
   { icon: '💻', label: 'Coding' },

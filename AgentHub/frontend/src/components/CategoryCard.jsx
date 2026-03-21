@@ -1,5 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
 export default function CategoryCard({ icon, label, count, onClick }) {
   return (
     <div className="category-card" onClick={onClick}>

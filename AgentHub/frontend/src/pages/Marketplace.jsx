@@ -7,7 +7,7 @@ import { getAgents } from '../api';
 const CATEGORIES = ['All', 'Coding', 'Writing', 'Productivity', 'Study', 'Career'];
 
 export default function Marketplace() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams(); // eslint-disable-line no-unused-vars
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState(searchParams.get('search') || '');
@@ -15,6 +15,7 @@ export default function Marketplace() {
   const [sort, setSort] = useState(searchParams.get('sort') || 'newest');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     const params = {};
     if (search) params.search = search;
@@ -29,6 +30,7 @@ export default function Marketplace() {
 
   // Sync URL params
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (searchParams.get('search')) setSearch(searchParams.get('search'));
     if (searchParams.get('category')) setCategory(searchParams.get('category'));
     if (searchParams.get('sort')) setSort(searchParams.get('sort'));

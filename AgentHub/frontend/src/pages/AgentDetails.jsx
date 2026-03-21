@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Star, BarChart3, Play, Send, Copy, RefreshCw } from 'lucide-react';
 import { marked } from 'marked';
-import { getAgent, useAgent, addReview } from '../api';
+import { getAgent, runAgent, addReview } from '../api';
 
 export default function AgentDetails() {
   const { id } = useParams();
@@ -18,6 +18,7 @@ export default function AgentDetails() {
   const [toast, setToast] = useState('');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
     getAgent(id)
       .then(r => {
@@ -39,7 +40,7 @@ export default function AgentDetails() {
     setRunning(true);
     setResult('');
     try {
-      const res = await useAgent(id, inputs);
+      const res = await runAgent(id, inputs);
       setResult(res.data.response || 'No response generated.');
       if (res.data.agent) setAgent(res.data.agent);
     } catch (err) {
