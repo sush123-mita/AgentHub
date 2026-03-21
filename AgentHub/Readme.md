@@ -1,3 +1,5 @@
+<h1>AgentHub – AI Agents Discovery Platform</h1>
+
 AgentHub is a marketplace-style platform where developers can publish their AI agents and users can easily discover, explore, and use them in one place.
 
 The goal of this project is simple:
@@ -58,3 +60,9 @@ Database
 MongoDB (used for agent data, users, and reviews)
 Deployment
 Railway Cloud Platform
+
+🌐 Live Deployment
+
+The project is deployed and running here:
+
+👉 https://chic-enthusiasm-production-93d0.up.railway.app
